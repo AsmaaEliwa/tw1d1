@@ -247,3 +247,12 @@ func occurrences(arr: [Int] , x: Int) -> Int{
 
 
 print (occurrences(arr: [1,1,2,3,4,5,6,1,2,454],x: 1))
+
+
+var names=["ali","asmaa","saif","max","adam"]
+for name in names[...2]{
+    print(name)
+}
+for name in names[2...]{
+    print(name)
+}
