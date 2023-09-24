@@ -3,7 +3,11 @@
    version = "3.0">
    <TimelineItems>
       <LoggerValueHistoryTimelineItem
-         documentLocation = "file:///Users/asmaagamal/Desktop/Global%20Data/tw1d1/MyPlayground.playground#CharacterRangeLen=38&amp;CharacterRangeLoc=4304&amp;EndingColumnNumber=38&amp;EndingLineNumber=230&amp;StartingColumnNumber=0&amp;StartingLineNumber=230&amp;Timestamp=717027823.1439511"
+         documentLocation = "file:///Users/asmaagamal/Desktop/Global%20Data/tw1d1/MyPlayground.playground#CharacterRangeLen=38&amp;CharacterRangeLoc=4304&amp;EndingColumnNumber=38&amp;EndingLineNumber=230&amp;StartingColumnNumber=0&amp;StartingLineNumber=230&amp;Timestamp=717246359.4939801"
+         selectedRepresentationIndex = "0">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/asmaagamal/Desktop/Global%20Data/tw1d1/MyPlayground.playground#CharacterRangeLen=20&amp;CharacterRangeLoc=4832&amp;EndingColumnNumber=1&amp;EndingLineNumber=261&amp;StartingColumnNumber=0&amp;StartingLineNumber=260&amp;Timestamp=717246359.494231"
          selectedRepresentationIndex = "0">
       </LoggerValueHistoryTimelineItem>
    </TimelineItems>

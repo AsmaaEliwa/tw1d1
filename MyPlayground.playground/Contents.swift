@@ -256,3 +256,96 @@ for name in names[...2]{
 for name in names[2...]{
     print(name)
 }
+
+var arr1 = [1,2,3,4,5,6,7,8]
+arr1.first {$0 > 3
+}
+//example of optional binding
+
+let name :String? = "max"
+if let myName = name {
+    print(myName)
+}else {
+    return
+}
+
+
+func printName(name :String?){
+    guard let myName = name else{
+        return
+    }
+}
+
+
+//Assignment
+//1. find the minimum and maximum elements in array
+
+func minMax(arr: [Int]){
+    let minEle = arr.min()
+    let maxEle = arr.max()
+    print("min element is \(minEle) and the max element is \(maxEle)")
+}
+minMax(arr: [1,2,3,4,3])
+
+
+//2. reverse the array (from scratch)
+func reverseArray(arr: [Int])->[Int]{
+    var newArray: [Int]=[]
+    var i = arr.count-1
+    
+    while i >= 0 {
+        newArray.append(arr[i])
+        i-=1
+    }
+    return newArray
+}
+
+print (reverseArray(arr: [1,2,3,4,5]))
+
+//3. sort an array (from scratch)
+
+func sortArray(arr: [Int])->[Int]{
+ var sorted=false
+    var array=arr
+    while !sorted {
+        sorted=true
+        for i in 0...array.count-1 {
+            if i+1 <= arr.count-1 && array[i] > array[i+1]{
+                var copy = array[i]
+                array[i] = array[i+1]
+                array[i+1] = copy
+                sorted=false
+            }
+        }
+        
+    }
+    return array
+}
+
+print(sortArray(arr: [1,62,3,4,5,]))
+
+
+
+
+//4. From a sorted array arr[] and a number x, write a function that counts the occurrences of x in arr[]
+
+func occurrences(arr: [Int] , x: Int) -> Int{
+    var count=0
+    for i in arr {
+        if i == x {
+            count+=1
+        }
+    }
+    return count
+}
+
+
+print (occurrences(arr: [1,1,2,3,4,5,6,1,2,454],x: 1))
+
+///value type
+
+var e = 0
+var l = a
+l=3
+print (e)
+
