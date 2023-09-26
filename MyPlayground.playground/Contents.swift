@@ -349,3 +349,78 @@ var l = a
 l=3
 print (e)
 
+
+
+//Assignment 3
+//1. You have an array of N integers, and an integer K, the task is to find the number of pairs of integers in the array whose sum is equal to K.
+func numberOfPairs(arr: [Int], k: Int)->Int{
+   var count=0
+    for x in arr {
+        for i in x..<arr.count{
+            if i>x && i+x == k {
+                count+=1
+            }
+        }
+    }
+    return count
+}
+print (numberOfPairs(arr:[1,2,3,4,5,6,-3,-2] , k: 3))
+
+
+
+
+//2. You have  a sorted and rotated array arr[] of size N and a key, the task is to find the key in the array.
+func findIndex(arr: [Int], k: Int)->[Int]{
+    var holder: [Int]=[]
+    for (idx , num )in arr.enumerated() {
+        if num == k {
+            holder.append(idx)
+        }
+    }
+    return holder
+}
+
+print(findIndex(arr:[1,2,3,2,4,5,6,3,2,1], k: 3))
+
+#fileLiteral(resourceName: "leetcode")
+
+
+//Assignment4
+//1. find all the elements occurring more than once in the given array
+func mostSeen(_ arr:[Int])->Any{
+    var holder: [Int] = []
+    var dic: [Int: Int] = [:]
+    for i in arr {
+        if let count = dic[i] {//checking if the dictionary has the ele as a key
+            dic[i] = count + 1
+        }else {  // if not then we add the ele as a key with the value =1
+            dic[i] = 1
+        }
+    }
+    for (k,v) in dic{
+        if v >= 2 {
+            holder.append(k)
+        }
+    }
+    return holder
+}
+
+print(mostSeen([1,2,3,4,12,1,3,4])) //time complixity  O(n)
+
+//2. No negative. The task is to check if N is a power of 2. More formally, check if N can be expressed as 2x for some integer x. Return true if N is power of 2 else return false
+//
+func powerChecker(_ n: Int)-> Bool {
+    for i in 1..<n-1 {
+        var c=1
+        for e in 1..<i {   // power generator
+            c *= 2
+        }
+//        print(c)
+        if( c == n  ){
+            return true
+        }
+    }
+    return false
+}
+
+print(powerChecker(64)).  //time complixity  O(n^2)
