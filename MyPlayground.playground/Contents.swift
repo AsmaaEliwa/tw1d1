@@ -424,3 +424,58 @@ func powerChecker(_ n: Int)-> Bool {
 }
 
 print(powerChecker(64)).  //time complixity  O(n^2)
+
+
+//Assignment 5
+//1. Given a string str, return the longest
+//palindromic substring in str.
+
+func substrings(_ str: String)-> [String]{
+    var holder: [String] = []   //this will hold all the subs
+    for i in 0..<str.count{      // itrating on the indices  in the string
+        for j in ( i + 1 )...str.count{     // second itration to get the subs
+            var startIndex = str.index(str.startIndex, offsetBy: i) // this how we get the start index of the sub
+            var endIndex = str.index(startIndex, offsetBy: j - i) // the last index for the sub
+            if  endIndex <= str.endIndex { // making sure the index isn’t  out the pounders
+            holder.append(String(str[startIndex..<endIndex])) // pushing the sun in the holder
+       
+            }
+            
+        }
+    }
+    return holder
+}
+print(substrings("hello"))
+
+func palindromic(_ str:String)-> String{
+    let substrings = substrings(str)    // to get all the subs for this string
+    var holder: [String]=[]       // to hold the palindromic ones
+    for sub in substrings{            // itrating on the substrings  to check if they are   palindromic
+        if sub == String(sub.reversed()){
+            holder.append(sub)  // if yes then we push it in the holder
+        }
+    }
+    return holder.max{ $0.count < $1.count } ?? "no palindromic"   // we return the longest one if any if not that means there is non  "no palindromic"  will be returned
+}
+
+print (palindromic("hello")) // this will print "ll"
+
+
+//2. Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0. Notice that the solution set must not contain duplicate triplets.
+func uniqueTriplets(_ arr: [Int])-> [[Int]]{
+    var holder: [[Int]] = []   //nested array this will hold all the uniqueTriplets
+    for i in 0..<arr.count-2{      // itrating on the indices  in the arr to get the first ele
+        for j in ( i + 1 )...arr.count-1{    // itrating on the indices  in the arr to get the second  ele
+            for k in (j + 1)..<arr.count {   // itrating on the indices  in the arr to get the third  ele
+               let triplet = [arr[i], arr[j], arr[k]]
+                   if triplet.count == 3 && triplet.reduce(0, +) == 0 && Set(triplet).count == 3{  //checking that they are 3  and the sum = 0 , unique by converting the 3 element to a set (which must be unique)
+                       holder.append(triplet)
+                   }
+            }
+            
+        }
+    }
+    return holder
+}
+print(uniqueTriplets([1,2,3,4,5,6,7,8,-1,0,-1]))
+
