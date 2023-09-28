@@ -479,3 +479,55 @@ func uniqueTriplets(_ arr: [Int])-> [[Int]]{
 }
 print(uniqueTriplets([1,2,3,4,5,6,7,8,-1,0,-1]))
 
+
+
+//Assignment 6
+//1. You are given the heads of two sorted linked lists list1 and list2. Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists. Return the head of the merged linked list.
+class Node{
+    var value: Int
+    var next: Node?
+    init(value: Int){
+        self.value = value
+        self.next = nil
+    }
+}
+func mergeTwo(_ l1: Node , _ l2: Node)->[Int]{
+    var holder: [Int]=[]
+    if l1.value<l2.value{
+         l1.next = l2
+        holder.append(l1.value)
+        holder.append(l2.value)
+    }else{
+        l2.next = l1
+        holder.append(l2.value)
+        holder.append(l1.value)
+    }
+   
+    return holder
+}
+
+
+var l1: Node = Node(value: 1)
+l1.next = Node(value: 2)
+l1.next?.next = Node(value:4)
+var l2: Node = Node(value: 2)
+l2.next = Node(value: 3)
+l2.next?.next = Node(value: 4)
+print(mergeTwo(l1,l2))
+//
+//2. You are given an array of k linked-lists lists, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it.
+func mergeLists(_ arg: [Node])->[Int]{
+    var holder: [[Int]] = []
+    for i in 0..<arg.count-1 {
+//        var mergedList: Node? = arg[0]
+//        if i+1 < =a
+   var mergedTwo = mergeTwo(arg[i] , arg[i+1] )
+    
+        holder.append(mergedTwo)
+}
+    return holder.flatMap { $0 }
+ }
+var l3: Node = Node(value: 3)
+l3.next = Node(value: 4)
+l3.next?.next = Node(value: 5)
+print(mergeLists([l1,l2,l3]))
