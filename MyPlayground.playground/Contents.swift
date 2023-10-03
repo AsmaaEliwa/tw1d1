@@ -737,3 +737,242 @@ extension Int{
 
 print(num.isOdd())
 print(num.isEven())
+
+
+
+//Assignment7
+//1. Write a detailed good use case code on Error Handling
+enum error: Error{
+    case wrongPassword
+    case wrongEmail
+}
+func logIn(email : String , password: String)throws->String{
+    if email != "asmaa@gmail.com"{
+        throw error.wrongEmail
+    }else if password != "12345678"{
+        throw error.wrongPassword
+    }
+    return "welcom back \(email)"
+}
+do{
+    let result = try logIn(email: "asmaa", password: "12345678")
+    print(result)
+}catch error.wrongEmail{
+    print("Wrong email! , try again leter")
+}catch error.wrongPassword{
+    print("Wrong Password")
+}
+
+
+
+
+
+//2. Write a detailed use case code on Protocol
+protocol Colors {
+    func rgbValue() -> String
+}
+
+class Red: Colors {
+    var colorName: String
+
+    init(colorName: String) {
+        self.colorName = colorName
+    }
+
+    var hexValue: String {
+        return "#ff0000" // Hex value for pure red
+    }
+
+    func rgbValue() -> String {
+        return "the rgb value is (255, 0, 0)" // RGB value for pure red
+    }
+}
+
+
+
+
+
+//3. Write extensions of strings and Double (at 5 of each one ) with their implementation
+extension String{
+    
+    func split()->[String]{
+        var word=""
+        var holder: [String] = []
+        for i in self{
+            if i == " " {
+                if !word.isEmpty {
+                  holder.append(word)
+                  word = ""
+                   }
+            }else{
+//                print(i)
+              word += String(i)
+            }
+            
+            
+        }
+         return holder
+    }
+   
+}
+
+var sent = "hello there im here now ?"
+print(sent.split())
+
+
+extension String {
+    func index(_ idx:Int)->Any{
+        var value: Character?
+        for (i,char) in self.enumerated(){
+            if idx == i {
+                value = char
+            }
+//            print(i , char)
+        }
+        return value ?? nil
+    }
+}
+var str = "asmaa"
+print(str.index(3))
+
+
+extension String{
+    func removeVowels()->String{
+        let vowels:[Character] = ["i","u","o","e","a"]
+        var newStr = ""
+    for i in self {
+        if !vowels.contains(i){
+            newStr.append(i)
+        }
+    }
+         return newStr
+    }
+}
+let myStr = "vowel check "
+print (myStr.removeVowels())
+
+
+extension String{
+    func capitalize()-> String{
+        
+        var word: String = ""
+       if let firstEle = self.first?.uppercased(){
+         word+=firstEle
+       }
+        for (i,char) in  self.enumerated(){
+            if i != 0 {
+                word+=String(char)
+            }
+        }
+        return word
+    }
+    
+}
+
+print(str.capitalize())
+
+extension String{
+    func length()->Int{
+        return self.count
+    }
+}
+
+print(str.length())
+
+///////////////////////Int
+
+extension Int{
+    func power(_ num: Int)-> Int{
+        var result = self
+        var i = num
+        while i > 1{
+            result *= self
+            i-=1
+        }
+        return result
+    }
+}
+
+var num = 3
+print(num.power(2))
+
+
+extension Int {
+    func isPrime()->Bool{
+        if self < 2 {
+            return false
+        }
+        for i in 2..<self{
+            if self % i == 0 {
+                return false
+            }
+        }
+        return true
+    }
+}
+print(num.isPrime())
+
+extension Int{
+    func addStringNumbers(_ strNum: String)->Int{
+        var num: Int = Int(strNum) ?? 0
+        return self + num
+    }
+}
+
+var strNum = "1"
+print(num.addStringNumbers(strNum))
+
+extension Int{
+    func isEven()->Bool{
+        if self % 2 == 0 {
+            return true
+        }
+        return false
+    }
+}
+
+
+extension Int{
+    func isOdd()-> Bool{
+        if self % 2 != 0 {
+                  return true
+              }
+              return false
+    }
+}
+
+print(num.isOdd())
+print(num.isEven())
+
+
+
+
+struct Spaceship {
+    var name: String {
+        willSet {
+            print("I'm called \(newValue)!")
+        }
+    }
+}
+
+var serenity = Spaceship(name: "Serenity")
+serenity.name = "TARDIS"
+
+
+
+let userLoggedIn: Bool? = false
+
+if !userLoggedIn! {
+    print("Message one")
+} else {
+    print("Message two")
+}
+
+extension Int{
+    func addSome(){
+        var r = self.isPrime()
+        print(r)
+    }
+}
+
+num.addSome()
